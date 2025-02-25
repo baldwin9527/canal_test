@@ -169,6 +169,11 @@ public abstract class AbstractMysqlEventParser extends AbstractEventParser {
     }
 
     protected synchronized void buildTableMetaTSDB(String tsdbSpringXml) {
+
+        logger.info("canal.instance.tsdb.enableTsdb: {}", enableTsdb);
+        logger.info("canal.instance.tsdb.url: {}", tsdbJdbcUrl);
+        logger.info("canal.instance.tsdb.dbUsername: {}", tsdbJdbcUserName);
+        logger.info("canal.instance.tsdb.dbPassword: {}", tsdbJdbcPassword);
         if (tableMetaTSDB != null) {
             return;
         }
@@ -269,6 +274,7 @@ public abstract class AbstractMysqlEventParser extends AbstractEventParser {
     }
 
     public void setEnableTsdb(boolean enableTsdb) {
+        logger.info("canal.instance.tsdb.enableTsdb: {}", enableTsdb);
         this.enableTsdb = enableTsdb;
     }
 

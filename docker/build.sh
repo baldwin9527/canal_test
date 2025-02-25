@@ -24,6 +24,6 @@ else
     rm -rf $BASE/canal.*.tar.gz ; 
     cd $BASE/../ && mvn clean package -Dmaven.test.skip -Denv=release && cd $current_path ;
     cp $BASE/../target/canal.deployer-*.tar.gz $BASE/
-    docker build --no-cache -t canal/canal-server $BASE/
+    # docker build --no-cache -t canal/canal-server $BASE/
     # docker build --platform linux/arm64 --no-cache -t canal/canal-server $BASE/
 fi

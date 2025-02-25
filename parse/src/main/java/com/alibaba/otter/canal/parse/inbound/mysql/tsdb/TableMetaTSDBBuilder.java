@@ -25,6 +25,7 @@ public class TableMetaTSDBBuilder {
      * 代理一下tableMetaTSDB的获取,使用隔离的spring定义
      */
     public static TableMetaTSDB build(String destination, String springXml) {
+        logger.info("开始执行 {} init TableMetaTSDB with {}", destination, springXml);
         if (StringUtils.isNotEmpty(springXml)) {
             ClassPathXmlApplicationContext applicationContext = contexts.get(destination);
             if (applicationContext == null) {

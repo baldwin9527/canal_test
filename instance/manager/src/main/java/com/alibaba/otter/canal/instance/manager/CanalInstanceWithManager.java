@@ -259,6 +259,7 @@ public class CanalInstanceWithManager extends AbstractCanalInstance {
     }
 
     private CanalEventParser doInitEventParser(SourcingType type, List<InetSocketAddress> dbAddresses) {
+        logger.info("doInitEventParser parameters: {}", parameters);
         CanalEventParser eventParser;
         if (type.isMysql()) {
             MysqlEventParser mysqlEventParser = null;
@@ -328,6 +329,7 @@ public class CanalInstanceWithManager extends AbstractCanalInstance {
                 mysqlEventParser.setTsdbSnapshotExpire(parameters.getTsdbSnapshotExpire());
             }
             boolean tsdbEnable = BooleanUtils.toBoolean(parameters.getTsdbEnable());
+
             // manager启动模式默认使用mysql tsdb机制
             final String tsdbSpringXml = "classpath:spring/tsdb/mysql-tsdb.xml";
             if (tsdbEnable) {
